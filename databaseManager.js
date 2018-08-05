@@ -31,7 +31,7 @@ module.exports.getPost = (PostId) => {
       return result.Item;
     });
 };
-module.exports.deletetPost = (PostId) => {
+module.exports.deletePost = (PostId) => {
   const params = {
     Key: {
       PostId: PostId
@@ -48,7 +48,7 @@ module.exports.updatePost = (PostId, paramsName, paramsValue) => {
     TableName: TABLE_NAME,
     ConditionExpression: 'attribute_exists(PostId)',
     UpdateExpression: 'set ' + paramsName + ' = :v',
-    ExpressionAttributeValue: {
+    ExpressionAttributeValues: {
       ':v': paramsValue
     },
     ReturnValues: 'ALL_NEW'
